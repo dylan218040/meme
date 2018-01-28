@@ -1,0 +1,4 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(373,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  Resolver.cpp
+     Creating library .\Release\SS.lib and object .\Release\SS.exp
+  AYYWARE CSGO.vcxproj -> D:\meme\AYYWARE CSGO\.\Release\SS.dll

@@ -11,6 +11,8 @@
 #include "Hacks.h"
 #include "Hooks.h"
 
+extern float resolvermode;
+
 class ResolverSetup
 {
 public:

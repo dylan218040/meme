@@ -2692,15 +2692,20 @@ void DoRealAA(CUserCmd* pCmd, IClientEntity* pLocal, bool& bSendPacket)
 		AntiAims::FakeMemes(pCmd, bSendPacket);
 		break;
 	case 17:
-		AntiAims::Switch(pCmd);
+		if (flipBool)
+		{
+			pCmd->viewangles.y -= 90;
+		}
+		else if (!flipBool)
+		{
+			pCmd->viewangles.y += 90;
+		}
 		break;
 	case 18:
 		if (flipBool)
-
 		{
 			AntiAims::adaptive2(pCmd, bSendPacket);
 		}
-
 		else if (!flipBool)
 		{
 			AntiAims::adaptive(pCmd, bSendPacket);
@@ -2895,15 +2900,28 @@ void DoFakeAA(CUserCmd* pCmd, bool& bSendPacket, IClientEntity* pLocal)
 		AntiAims::LBYSpin(pCmd, bSendPacket);
 		break;
 	case 14:
-		AntiAims::SwitchAlt(pCmd);
+		if (flipBool)
+		{
+			if (switch2)
+				pCmd->viewangles.y += 55;
+			else
+				pCmd->viewangles.y += 125;
+			switch2 = !switch2;
+		}
+		else if (!flipBool)
+		{
+			if (switch2)
+				pCmd->viewangles.y -= 55;
+			else
+				pCmd->viewangles.y -= 125;
+			switch2 = !switch2;
+		}
 		break;
 	case 15:
 		if (flipBool)
-
 		{
 			AntiAims::adaptive(pCmd, bSendPacket);
 		}
-
 		else if (!flipBool)
 		{
 			AntiAims::adaptive2(pCmd, bSendPacket);

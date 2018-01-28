@@ -43,3 +43,4 @@ namespace Resolver
 
 extern bool flipAA;
 extern float flipBool;
+extern float resolvermode;

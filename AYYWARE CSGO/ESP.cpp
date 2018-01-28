@@ -10,6 +10,8 @@
 
 DWORD GlowManager = *(DWORD*)(Utilities::Memory::FindPatternV2("client.dll", "0F 11 05 ?? ?? ?? ?? 83 C8 01 C7 05 ?? ?? ?? ?? 00 00 00 00") + 3);
 
+extern float resolvermode;
+
 #ifdef NDEBUG
 #define strenc( s ) std::string( cx_make_encrypted_string( s ) )
 #define charenc( s ) strenc( s ).c_str()
@@ -849,15 +851,17 @@ void CEsp::DrawInfo(IClientEntity* pEntity, CEsp::ESPBox size)
 
 	if (Menu::Window.VisualsTab.ResolverInfo.GetState())
 	{
-		if (resolvokek::resolvemode == 1)
-			Info.push_back("R::Brute Saved");
+		if (resolvermode == 1)
+			Info.push_back("Default");
 		//else if (pEntity->GetVelocity().Length2D() < 36 && pEntity->GetVelocity().Length2D() > 20)
 			//Info.push_back("Fake-walk");
-		else if (resolvokek::resolvemode == 2)
-			Info.push_back("R::Brute");
+		else if (resolvermode == 2)
+			Info.push_back("Lby Inverse");
 
-		else if (resolvokek::resolvemode == 3)
-			Info.push_back("R::Backtrack LBY");
+		else if (resolvermode == 3)
+			Info.push_back("Lby Inverse Random");
+		else if (resolvermode == 4)
+			Info.push_back("Random");
 
 	}
 	

@@ -30,7 +30,6 @@ enum class TeamID : int
 	TEAM_TERRORIST,
 	TEAM_COUNTER_TERRORIST,
 };
-
 class CSWeaponInfo
 {
 public:

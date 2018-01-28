@@ -201,16 +201,9 @@ void CRageBotTab::Setup()
 
 	AimbotResolver.SetFileId("acc_aaa");
 	AimbotResolver.AddItem("Off");
-	AimbotResolver.AddItem("Lv1");
-	AimbotResolver.AddItem("Lv2");
-	AimbotResolver.AddItem("Meme1");
-	AimbotResolver.AddItem("Meme2");
-	AimbotResolver.AddItem("Meme3");
-	AimbotResolver.AddItem("Ok");
-	AimbotResolver.AddItem("Good");
-	AimbotResolver.AddItem("?");
-	AimbotResolver.AddItem("Meme4");
-	AimbotResolver.AddItem("Meme5");
+	AimbotResolver.AddItem("Default");
+	AimbotResolver.AddItem("Auto");
+	AimbotResolver.AddItem("Scout");
 	AccuracyGroup.PlaceOtherControl("Yaw Resolver", this, &AimbotResolver);
 
 	AimbotBaimOnKey.SetFileId("baimonkeypress");

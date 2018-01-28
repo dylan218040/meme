@@ -16,6 +16,7 @@
 extern float lineLBY;
 extern float lineRealAngle;
 extern float lineFakeAngle;
+extern float resolvermode;
 Vector LastAngleAAReal;
 Vector LBYThirdpersonAngle;
 
@@ -702,6 +703,10 @@ void __fastcall PaintTraverse_Hooked(PVOID pPanels, int edx, unsigned int vguiPa
 				char bufferlineFakeAngle[64];
 				sprintf_s(bufferlineFakeAngle, "Fake:  %.1f", lineFakeAngle);
 				Render::Text(7, 530, Color(255, 255, 255, 255), Render::Fonts::ESP, bufferlineFakeAngle);
+				
+				char bufferresolvermode[64];
+				sprintf_s(bufferresolvermode, "ResolverMode: %.1f", resolvermode);
+				Render::Text(7, 540, Color(255, 255, 255, 255), Render::Fonts::ESP, bufferresolvermode);
 			} 
 
 			if (Interfaces::Engine->IsConnected() && Interfaces::Engine->IsInGame())
@@ -778,6 +783,8 @@ bool flipAA;
 
 bool __fastcall Hooked_FireEventClientSide(PVOID ECX, PVOID EDX, IGameEvent *Event)
 {
+	if (strcmp(Event->GetName(), "round_start") == 0 && resolvermode > 1)
+		resolvermode = 1;
 
 	if (Menu::Window.MiscTab.EnableBuyBot.GetState())
 	{
@@ -1384,7 +1391,7 @@ void  __stdcall Hooked_FrameStageNotify(ClientFrameStage_t curStage)
 
 		}
 
-		if (!Menu::Window.MiscTab.OtherThirdperson.GetState()) {
+		if (!Menu::Window.MiscTab.OtherThirdperson.GetState() || pLocal->IsAlive() == 0) {
 
 			// No Thirdperson
 			static Vector vecAngles;
@@ -1413,7 +1420,6 @@ void  __stdcall Hooked_FrameStageNotify(ClientFrameStage_t curStage)
 		}
 
 	}
-
 
 	if (Interfaces::Engine->IsConnected() && Interfaces::Engine->IsInGame() && curStage == FRAME_NET_UPDATE_POSTDATAUPDATE_START) {
 		{

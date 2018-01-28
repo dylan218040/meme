@@ -4,6 +4,7 @@
 extern float lineLBY;
 extern float lineRealAngle;
 extern float lineFakeAngle;
+extern float resolvermode;
 
 class CEsp : public CHack
 {

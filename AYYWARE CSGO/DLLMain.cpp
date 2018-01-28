@@ -24,6 +24,7 @@ float lineLBY;
 float lineRealAngle;
 float lineFakeAngle;
 float flipBool;
+float resolvermode;
 
 template <int XORSTART, int BUFLEN, int XREFKILLER>
 
